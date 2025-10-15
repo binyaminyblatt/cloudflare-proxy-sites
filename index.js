@@ -6,7 +6,7 @@ const getTargetDomain = (host, rootDomain) => {
   return host.split(`.${rootDomain}`)[0]; 
 }
  
-const ownDomain = "serp.ing";
+const ownDomain = "tailscale.blattfam.fun";
 
 async function handleRequest(request) {
   const url = new URL(request.url);
@@ -19,7 +19,7 @@ Disallow: /
    return new Response(robots,{ status: 200 });
   }
 
-  const targetDomain = getTargetDomain(host, ownDomain); 
+  const targetDomain = "controlplane.tailscale.com"; 
   const origin = `https://${targetDomain}`; 
   const actualUrl = new URL(`${origin}${pathname}${url.search}${url.hash}`); 
 
